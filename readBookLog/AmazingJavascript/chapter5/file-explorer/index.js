@@ -10,13 +10,13 @@ fs.readdir(process.cwd(), (err, files) => {
     var fileName = files[i];
     fs.stat(__dirname + '/' + fileName, (err, stat) => {
       if (stat.isDirectory()) {
-        console.log(i + '    " '+fileName+' "');
+        console.log(i + '    " \033[36m '+fileName+' \033[39m "');
       } else {
-        console.log(i + '    " '+fileName+' "');
+        console.log(i + '    " \033[90m '+fileName+' \033[39m "');
       }
       if (++i === files.length) {
         console.log(' ')
-        process.stdout.write(`    " Enter your choice:  "`);
+        process.stdout.write(' \033[33m Enter your choice: \033[39m ');
         process.stdin.resume();
         process.stdin.setEncoding('utf-8');
       } else {
